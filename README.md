@@ -44,7 +44,6 @@ make
 sudo make install
 sudo apt-get update
 ```
-
 At this point, Singularity has been installed on our Eagle platform.
 We can proceed with some additional required dependencies for the system.
 Install the following packages using the command below:
@@ -152,6 +151,10 @@ r2
 br2
 source install/setup.bash
 ```
+
+### Set up tmux inside Singularity (Optional)
+This section provides information about how to setup tmux inside singularity workspacee
+
 
 ## Chrony Setup (Eagle and Station Computer)
 
@@ -349,6 +352,15 @@ uxrce_dds_client start -d  /dev/ttyS2 -b 1000000 -n eagle1
 
 ## Steps To fly
 ## How to Fly Autonomous Mode
+
+## Update date and time
+Sometimes while using chrony we can lost the date and time on the robot, this can also proudce problems realted to clonning a repository. We can solve this problem by executing the following command.
+```bash
+sudo apt-get install ntp
+```
+
+Remember everytime you are flying you should verify that chorny is sinchronize
+
 
 
 ## Progress Overview
