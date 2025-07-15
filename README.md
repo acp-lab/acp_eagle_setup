@@ -10,7 +10,7 @@ For detailed instructions on this procedure, please refer to the following repos
 Switch to the branch `guanrui/jetpack6.2_seeedstudio` — it contains a detailed explanation of how to set up the platform and flash JetPack 6.2.
 
 
-### Install Dependencies on the Robot Computer
+### Install Dependencies on the Robot
 
 On the **Jetson Orin NX**, run the following commands to install the required dependencies:
 ```bash
@@ -317,7 +317,7 @@ We need to download the files `mro_pixracerpro_default.px4` and `eagle4.params` 
 
 [PX4-Files](https://wpi0-my.sharepoint.com/personal/gli7_wpi_edu/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fgli7%5Fwpi%5Fedu%2FDocuments%2FLab%20Files%2FResearch%2FPX4%5FEAGLE&e=5%3Added85e5885640eeb714e54d2a7c8b1d&sharingv2=true&fromShare=true&at=9&CT=1737433616510&OR=OWA%2DNT%2DMail&CID=1b6adb1e%2D9f18%2D37e4%2D1830%2Dd2edeeb76a45&clickParams=eyJYLUFwcE5hbWUiOiJNaWNyb3NvZnQgT3V0bG9vayBXZWIgQXBwIiwiWC1BcHBWZXJzaW9uIjoiMjAyNTAxMTAwMDMuMTciLCJPUyI6IkxpbnV4IHVuZGVmaW5lZCJ9&cidOR=Client&FolderCTID=0x0120003428F273A42BA74BAAF116C7DA5A52A6&view=0)
 
-To set up the flight controller with the appropriate parameters, we need to upload the following file:
+To set up the flight controller with the appropriate firmware, we need to upload the following file:
 
 ```
 mro_pixracerpro_default.px4
