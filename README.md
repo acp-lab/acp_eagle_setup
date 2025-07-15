@@ -153,7 +153,14 @@ source install/setup.bash
 ```
 
 ### Set up tmux inside Singularity (Optional)
-This section provides information about how to setup tmux inside singularity workspacee
+This section provides information about how to setup tmux inside singularity workspace.
+Copy the file located at /tmux/cusomtmux.sh by following the next commands while you are inside singularity container:
+```bash
+runsin
+git clone git@github.com:acp-lab/acp_eagle_setup.git
+git checkout jetpack_6.2
+cp /home/eagle5/acp_eagle_setup/tmux/customtmux.sh /ext3/ws_acp/
+```
 
 
 ## Chrony Setup (Eagle and Station Computer)
