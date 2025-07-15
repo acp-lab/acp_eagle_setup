@@ -153,14 +153,21 @@ source install/setup.bash
 ```
 
 ### Set up tmux inside Singularity (Optional)
-This section provides information about how to setup tmux inside singularity workspace.
-Copy the file located at /tmux/cusomtmux.sh by following the next commands while you are inside singularity container:
+
+This section provides information about how to set up `tmux` inside the Singularity workspace.
+Copy the file located at `/tmux/customtmux.sh` by running the following commands while inside the Singularity container:
+
 ```bash
 runsin
 git clone git@github.com:acp-lab/acp_eagle_setup.git
 git checkout jetpack_6.2
 cp /home/eagle5/acp_eagle_setup/tmux/customtmux.sh /ext3/ws_acp/
+chmod +x ./customtmux.sh
+./customtmux.sh
 ```
+
+These commands will display a `tmux` window that can facilitate development within the Singularity container.
+
 
 
 ## Chrony Setup (Eagle and Station Computer)
@@ -344,6 +351,15 @@ We can also upload predefined parameters for the flight. These parameters have b
 ```
 eagle4.params
 ```
+## Build px4 Firmware
+Sometimes the user wants to build a custom PX4 firmware, if that is the case we can follow the following steps:
+Clone PIX4-Autopilot by the following command:
+```bash
+git clone --depth 1 --recursive     https://github.com/PX4/PX4-Autopilot.git
+cd PX4-Autopilot/
+git submodule update --init --recursive
+```
+
 
 
 ## Modify SD
