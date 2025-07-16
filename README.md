@@ -413,7 +413,7 @@ Remember everytime you are flying you should verify that chorny is sinchronize
 - [x] Singularity installed and configured
 - [x] Workspace built (`ws_acp`)
 - [x] Chrony set up and verified on robot and laptop
-- [ ] Install and test QGroundControl on laptop
+- [x] Install and test QGroundControl on laptop
 - [ ] Set up Pixracer Pro flight controller (upload firmware and parameters)
 - [ ] Modify Pixracer Pro SD card
 - [ ] Document steps to fly
