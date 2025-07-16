@@ -82,6 +82,12 @@ alias gb="vim ~/.bashrc"
 alias gi="source ~/.bashrc"
 fanmax
 ```
+
+Source the bashrc by the following command:
+```bash
+source ~/.bashrc
+```
+
 ## Singularity Files
 After this point, we need the Singularity files. These files can be downloaded from the following link:
 [Singularity](
@@ -353,16 +359,30 @@ This can be done through QGroundControl in the Firmware section.
 
 See the following images for more details.
 
+![Update firmware](images/update_firmware.png)
+
 
 
 We can also upload predefined parameters for the flight. These parameters have been previously tuned and seem to work properly, but feel free to modify them as needed:
 
 ```
-eagle4.params
+eagle_parameters.params
 ```
-## Build px4 Firmware
-Sometimes the user wants to build a custom PX4 firmware, if that is the case we can follow the following steps:
-Clone PIX4-Autopilot by the following command:
+
+![Update parameters](images/update_parameters.png)
+
+Although most of the parameters are set up beforehand, the user needs to modify the parameters `UXRCE_DDS_DOM_ID` and `UXRCE_DDS_KEY`. These two parameters should match the robot’s number; for instance, if you are using eagle5, both values should be set to 5.
+
+Also, the actuator outputs should be verified: you can run *Identify and Assign Motors* in QGroundControl.
+
+Always remember to calibrate the robot’s sensors as a sanity check, especially if this is the first time you are flying.
+
+
+## Build PX4 Firmware
+
+Sometimes the user may want to build a custom PX4 firmware. If that is the case, we can follow these steps:
+Clone PX4-Autopilot with the following commands:
+
 ```bash
 git clone --depth 1 --recursive     https://github.com/PX4/PX4-Autopilot.git
 cd PX4-Autopilot/
@@ -374,35 +394,49 @@ git submodule update --init --recursive
 make mro_pixracerpro_default
 ```
 
-This commands are going to generate the file 'mro_pixracerpro_default.px4', which is located in the /build folder. This file can be loaded to que robot by the use of QgroundControl.
-
+These commands will generate the file `mro_pixracerpro_default.px4`, which will be located in the `/build` folder.
+This file can be loaded onto the robot using QGroundControl.
 
 ## Calibrating Drone and PX4 Parameters
-Include a video with all the information about this process
 
-
+Include a video with all the information about this process.
 
 ## Modify SD
-Remember to modify the SD of the pixracer pro with a file called extrax.txt located in the etc folder
+
+Remember to modify the SD card of the Pixracer Pro by including a file called `extras.txt` located in the `etc` folder with the following content:
 
 ```bash
 sleep 20
 uxrce_dds_client stop
 sleep 20
-uxrce_dds_client start -d  /dev/ttyS2 -b 1000000 -n eagle1
+uxrce_dds_client start -d  /dev/ttyS2 -b 1000000 -n eagle5
+```
+If there is not a folder called `etc` you can directly create and continue with the steps mentioned before.
+You should modify the robot’s identifier (in this case `eagle5`) so that it matches your robot.
+
+### Verify Communication between PX4 and Jetson Orin
+Inside the Singularity container, execute the following commands:
+
+```bash
+MicroXRCEAgent serial -b 1000000 --dev /dev/ttyTHS1 
+ros2 topic list
+ros2 topic echo /eagle5/fmu/out/vehicle_odometry
 ```
 
+## Steps to Fly in Autonomous Mode
+### Include robot in VICON 
+### Prepare Station Compute r
+### Run SO3 controller
 
-## Steps To fly
-## How to Fly Autonomous Mode
+## Update Date and Time
 
-## Update date and time
-Sometimes while using chrony we can lost the date and time on the robot, this can also proudce problems realted to clonning a repository. We can solve this problem by executing the following command.
+Sometimes, while using Chrony, the robot may lose its date and time, which can also cause problems related to cloning repositories.
+We can solve this by executing the following command:
+
 ```bash
 sudo apt-get install ntp
 ```
-
-Remember everytime you are flying you should verify that chorny is sinchronize
+Remember that every time you are flying, you should verify that Chrony is synchronized.
 
 
 
@@ -414,6 +448,6 @@ Remember everytime you are flying you should verify that chorny is sinchronize
 - [x] Workspace built (`ws_acp`)
 - [x] Chrony set up and verified on robot and laptop
 - [x] Install and test QGroundControl on laptop
-- [ ] Set up Pixracer Pro flight controller (upload firmware and parameters)
-- [ ] Modify Pixracer Pro SD card
+- [x] Set up Pixracer Pro flight controller (upload firmware and parameters)
+- [x] Modify Pixracer Pro SD card
 - [ ] Document steps to fly
