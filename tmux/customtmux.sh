@@ -3,11 +3,11 @@
 tmux new-session -d -s default
 
 # Split the window vertically: top (70% height), bottom (30% height)
-tmux split-window -v -p 30
+tmux split-window -v -p 5
 
 # Split the top pane (pane 0) horizontally: left 70%, right 30%
 tmux select-pane -t default:0.0
-tmux split-window -h -p 30  # This makes the *new right pane* 30%, left auto becomes 70%
+tmux split-window -h -p 3  # This makes the *new right pane* 30%, left auto becomes 70%
 
 # Work on the bottom pane (which is now pane 2 after splitting top)
 tmux select-pane -t default:0.2

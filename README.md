@@ -168,7 +168,16 @@ chmod +x ./customtmux.sh
 
 These commands will display a `tmux` window that can facilitate development within the Singularity container.
 
+### Fancy Git
 
+To improve workflow and track changes in repositories, we recommend using **Fancy Git**.
+Inside the Singularity container, run the following command:
+
+```bash
+curl -sS https://raw.githubusercontent.com/diogocavilha/fancy-git/master/install.sh | sh
+```
+
+Then, close and reopen the Singularity container.
 
 ## Chrony Setup (Eagle and Station Computer)
 
@@ -358,6 +367,7 @@ Clone PIX4-Autopilot by the following command:
 git clone --depth 1 --recursive     https://github.com/PX4/PX4-Autopilot.git
 cd PX4-Autopilot/
 git submodule update --init --recursive
+git fetch --all --tags
 ```
 
 
