@@ -425,7 +425,9 @@ ros2 topic echo /eagle5/fmu/out/vehicle_odometry
 
 ## Steps to Fly in Autonomous Mode
 ### Include robot in VICON 
-### Prepare Station Compute r
+### Prepare Station Computer
+### Verify Chrony
+### Sanity Check Topic on the Robot
 ### Run SO3 controller
 
 ## Update Date and Time
