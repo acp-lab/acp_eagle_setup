@@ -368,7 +368,17 @@ git clone --depth 1 --recursive     https://github.com/PX4/PX4-Autopilot.git
 cd PX4-Autopilot/
 git submodule update --init --recursive
 git fetch --all --tags
+git checkout -f v1.14.1
+git submodule sync --recursive
+git submodule update --init --recursive
+make mro_pixracerpro_default
 ```
+
+This commands are going to generate the file 'mro_pixracerpro_default.px4', which is located in the /build folder. This file can be loaded to que robot by the use of QgroundControl.
+
+
+## Calibrating Drone and PX4 Parameters
+Include a video with all the information about this process
 
 
 
