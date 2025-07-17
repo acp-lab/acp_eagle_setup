@@ -80,8 +80,13 @@ alias edit_chrony="sudo vim /etc/chrony/chrony.conf"
 # openBash
 alias gb="vim ~/.bashrc"
 alias gi="source ~/.bashrc"
+
+# Ros2 Domain
+export ROS_DOMAIN_ID=5
+export ROS_LOCALHOST_ONLY=0
 fanmax
 ```
+The `ROS_DOMAIN_ID` should be the same as the number of the robot you are using. In this example this platform is eagle5.
 
 Source the bashrc by the following command:
 ```bash

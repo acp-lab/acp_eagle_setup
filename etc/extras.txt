@@ -1,4 +1,4 @@
 sleep 20
 uxrce_dds_client stop
 sleep 20
-uxrce_dds_client start -d  /dev/ttyS2 -b 1000000 -n eagle4
+uxrce_dds_client start -d  /dev/ttyS2 -b 1000000 -n eagle5
